@@ -32,7 +32,7 @@ func _input(event):
     if Input.is_action_just_pressed("drop") and picked == true:
         picked = false
         get_node("../Player").can_pick = true
-        if get_node("../Player").sprite.flip_h == false:
+        if get_node("../Player/AnimatedSprite").flip_h == false:
             apply_impulse(Vector2(), Vector2(90, -10))
         else:
             apply_impulse(Vector2(), Vector2(-90,-10))
@@ -41,7 +41,7 @@ func _input(event):
         picked = false
         picked = false
         get_node("../Player").can_pick = true
-        if get_node("../Player").sprite.flip_h == false:
+        if get_node("../Player/AnimatedSprite").flip_h == false:
             apply_impulse(Vector2(), Vector2(150, -200))
         else:
             apply_impulse(Vector2(), Vector2(-150,-200))
