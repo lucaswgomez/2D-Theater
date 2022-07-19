@@ -19,28 +19,29 @@ func _ready():
 #    pass
 func _physics_process(delta):
     if picked == true:
-        self.position = get_node("../Scenes/Player/Position2D").global_position
+        self.position = get_node("../Player/Position2D").global_position
 
 func _input(event):
     if Input.is_action_just_pressed("pick"):
-        var bodies = $Area2D.get_overlapping_bodies()
-        for body in bodies:
-            if body.name == "Player" and get_node("../Scenes/Player").canPick == true:
+        var areas = $Area2D.get_overlapping_areas()
+        for area in areas:
+            if area.name == "Player" and get_node("../Player").can_pick == true:
                 picked = true
-                get_node("../Scenes/Player").canPick = false
+                get_node("../Player").can_pick = false
                 
     if Input.is_action_just_pressed("drop") and picked == true:
         picked = false
-        get_node("../Scenes/Player").canPick = true
-        if get_node("../Scenes/Player").sprite.flip_h == false:
+        get_node("../Player").can_pick = true
+        if get_node("../Player").sprite.flip_h == false:
             apply_impulse(Vector2(), Vector2(90, -10))
         else:
             apply_impulse(Vector2(), Vector2(-90,-10))
             
     if Input.is_action_just_pressed("throw") and picked == true:
         picked = false
-        get_node("../Scenes/Player").canPick = true
-        if get_node("../Scenes/Player").sprite.flip_h == false:
+        picked = false
+        get_node("../Player").can_pick = true
+        if get_node("../Player").sprite.flip_h == false:
             apply_impulse(Vector2(), Vector2(150, -200))
         else:
             apply_impulse(Vector2(), Vector2(-150,-200))

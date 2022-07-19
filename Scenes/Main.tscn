@@ -41,11 +41,9 @@ curve = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="Tomato" parent="." instance=ExtResource( 5 )]
 position = Vector2( 369, 414 )
-collision_layer = 2
+collision_layer = 1
 collision_mask = 2
 
 [connection signal="hit" from="Player" to="." method="game_over"]

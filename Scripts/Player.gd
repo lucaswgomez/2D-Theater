@@ -4,9 +4,10 @@ signal hit
 # Declare member variables here.
 export var speed = 400 # Player Speed
 var screen_size # Size of game window
-var canPick = true
+var can_pick = true
 
-
+func getcanPick():
+    return can_pick
 # Called when the node enters the scene tree for the first time.
 func _ready():
     hide()
