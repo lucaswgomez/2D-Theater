@@ -46,6 +46,10 @@ func _input(event):
         else:
             apply_impulse(Vector2(), Vector2(-150,-200))
 
-
+func start(pos):
+    position = pos
+    show()
+    $CollisionPolygon2D.disabled = false
+    
 func _on_VisibilityNotifier2D_screen_exited():
     queue_free()

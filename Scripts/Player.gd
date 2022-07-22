@@ -45,11 +45,12 @@ func _process(delta):
 
 
 func _on_Player_body_entered(_body):
-    if _body.name == "Mob":
-        hide() # Player disappears after being hit.
-        emit_signal("hit")
-        # Must be deferred as we can't change physics properties on a physics callback.
-        $CollisionPolygon2D.set_deferred("disabled", true)
+    if _body.name == "Tomato":
+        return
+    hide() # Player disappears after being hit.
+    emit_signal("hit")
+    # Must be deferred as we can't change physics properties on a physics callback.
+    $CollisionPolygon2D.set_deferred("disabled", true)
 
 func start(pos):
     position = pos
